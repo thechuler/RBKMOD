@@ -14,6 +14,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.rbkstudios.modrbk.items.InicializarItems;
 import org.slf4j.Logger;
 
 
@@ -30,10 +31,11 @@ public class Modrbk
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
 
+        InicializarItems.registrar(modEventBus); // <---Llamo a la funcion para registrarlo.
+
+
+
         modEventBus.addListener(this::commonSetup);
-
-
-
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -41,7 +43,7 @@ public class Modrbk
         modEventBus.addListener(this::addCreative);
 
 
-       // ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
