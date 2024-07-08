@@ -14,6 +14,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.rbkstudios.modrbk.Bloques.InicializarBloques;
 import net.rbkstudios.modrbk.Efectos.InicializarEfectos;
+import net.rbkstudios.modrbk.Pociones.InicializadorPociones;
 import net.rbkstudios.modrbk.items.InicializarItems;
 import org.slf4j.Logger;
 
@@ -34,6 +35,7 @@ public class Modrbk
         InicializarItems.registrar(modEventBus); // <---Llamo a la funcion para registrarlo.
         InicializarBloques.registrar(modEventBus);
         InicializarEfectos.registrar(modEventBus);
+        InicializadorPociones.registrar(modEventBus);
 
 
         modEventBus.addListener(this::commonSetup);

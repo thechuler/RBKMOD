@@ -1,0 +1,23 @@
+{
+  "item.rbk.prueba":"Prueba",
+  "item.rbk.fragmento_de_enderium":"Fragmento de Enderium",
+  "block.rbk.enderium": "Mineral de Enderium",
+
+
+
+
+  "effect.rbk.helltouch": "Toque del infierno",
+  "item.minecraft.potion.effect.pocionhelltouch": "Pocion de Toque del infierno",
+  "item.minecraft.splash_potion.effect.pocionhelltouch": "Pocion Arrojadiza de Toque del infierno",
+  "item.minecraft.lingering_potion.effect.pocionhelltouch": "Pocion Persistente de Toque del infierno",
+  "item.minecraft.tipped_arrow.effect.pocionhelltouch": "Flecha de Toque del infierno",
+
+
+  "effect.rbk.retorno": "Retorno",
+  "item.minecraft.potion.effect.pocionretorno": "Pocion de Retorno",
+  "item.minecraft.splash_potion.effect.pocionretorno": "Pocion Arrojadiza de Retorno",
+  "item.minecraft.lingering_potion.effect.pocionretorno": "Pocion Persistente de Retorno",
+  "item.minecraft.tipped_arrow.effect.pocionretorno": "Flecha de Retorno"
+
+
+}

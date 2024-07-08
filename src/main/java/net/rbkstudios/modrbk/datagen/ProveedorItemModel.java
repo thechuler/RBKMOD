@@ -24,6 +24,7 @@ public class ProveedorItemModel extends ItemModelProvider {
     protected void registerModels() {
         simpleItem(InicializarItems.PRUEBA);
         simpleItem(InicializarItems.FRUTA);
+        simpleItem(InicializarItems.FRAGMENTO_DE_ENDERIUM);
     }
 
 

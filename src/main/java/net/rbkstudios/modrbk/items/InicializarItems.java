@@ -28,6 +28,11 @@ public class InicializarItems {
     public static final RegistryObject<Item> PRUEBA = ITEMS.register("prueba",()->
             new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> FRAGMENTO_DE_ENDERIUM = ITEMS.register("fragmento_de_enderium",()->
+            new Item(new Item.Properties()));
+
+
+
     public static final RegistryObject<Item> FRUTA = ITEMS.register("fruta",()->
             new Item(new Item.Properties().food(new FoodProperties.Builder()
                     .nutrition(5)

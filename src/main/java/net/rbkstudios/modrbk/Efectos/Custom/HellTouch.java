@@ -28,6 +28,7 @@ public class HellTouch extends MobEffect {
 
     @Override
     public boolean applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
+
         if (!pLivingEntity.level().isClientSide()) {
             BlockPos entityPos = pLivingEntity.blockPosition();
             List<Entity> entitiesInRange = detectEntities(pLivingEntity.level(), entityPos, 5.0);
