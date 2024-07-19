@@ -1,21 +1,47 @@
 package net.rbkstudios.modrbk.Eventos;
 
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
-import net.minecraftforge.event.level.BlockEvent;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.entity.SpawnPlacementTypes;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.rbkstudios.modrbk.Entidades.Custom.FrogManEntity;
+import net.rbkstudios.modrbk.Entidades.InicializarEntidades;
 import net.rbkstudios.modrbk.Modrbk;
-import net.rbkstudios.modrbk.items.InicializarItems;
+import net.rbkstudios.modrbk.Particulas.Custom.ParticulaDeCristal;
+import net.rbkstudios.modrbk.Particulas.InicializarParticulas;
 
-import java.awt.*;
 
 public class EventosCustom {
 
-    @Mod.EventBusSubscriber(modid = Modrbk.MODID)
+    @Mod.EventBusSubscriber(modid = Modrbk.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class EventosForge{
 
+
+        @SubscribeEvent
+        public  static void  RegistrarLugardeSpawn(SpawnPlacementRegisterEvent event){
+
+            event.register(InicializarEntidades.FROGMAN_ENTITY.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.WORLD_SURFACE,FrogManEntity::PuedeSpawnear,SpawnPlacementRegisterEvent.Operation.REPLACE);
+
+
+        }
+
+
+        @SubscribeEvent
+        public static void RegistrarAtributos(EntityAttributeCreationEvent event){
+            event.put(InicializarEntidades.FROGMAN_ENTITY.get(), FrogManEntity.createAttributes().build());
+
+        }
+
+        @SubscribeEvent
+        public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
+            Minecraft.getInstance().particleEngine.register(InicializarParticulas.PARTICULAS_DE_CRISTAL.get(), ParticulaDeCristal.Provider::new);
+        }
 
 
     }

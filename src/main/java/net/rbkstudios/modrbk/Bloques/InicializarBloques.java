@@ -1,19 +1,16 @@
 package net.rbkstudios.modrbk.Bloques;
 
 
-
-import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.rbkstudios.modrbk.Bloques.custom.PoisonOre;
 import net.rbkstudios.modrbk.Modrbk;
 import net.rbkstudios.modrbk.items.InicializarItems;
 
@@ -28,16 +25,18 @@ public class InicializarBloques {
 
 
 //----Registro de bloques
-public static final RegistryObject<Block> ENDERIUM = registerBlock("enderium",
-        () -> new DropExperienceBlock(
-                UniformInt.of(5,6),BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_ORE).strength(1.2f).requiresCorrectToolForDrops().sound(SoundType.STONE)
-        )
-
-
-
+public static final RegistryObject<Block> PIEDRACARGADA = registerBlock("piedra_cargada",
+        () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE))
 );
 
 
+public static final RegistryObject<Block> BANANITE_ORE = registerBlock("bananite_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE))
+    );
+
+    public static final RegistryObject<Block> POISON_ORE = registerBlock("poison_ore",
+            () -> new PoisonOre(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE))
+    );
 
 
 

@@ -1,5 +1,17 @@
 {
-  "item.rbk.prueba":"Prueba",
-  "item.rbk.fragmento_de_enderium":"Enderium Fragment",
-  "block.rbk.enderium": "Enderium Ore"
+  "item.rbk.geoda":"Geode",
+  "item.rbk.cristal_de_cambio":"Change Crystal",
+  "item.rbk.bananite":"Bananite",
+
+
+
+
+  "block.rbk.piedra_cargada": "Heavy Stone",
+  "block.rbk.bananite_ore": "Bananite Ore"
+
+
+
+
+
+
 }

@@ -22,9 +22,13 @@ public class ProveedorItemModel extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        simpleItem(InicializarItems.PRUEBA);
-        simpleItem(InicializarItems.FRUTA);
-        simpleItem(InicializarItems.FRAGMENTO_DE_ENDERIUM);
+        simpleItem(InicializarItems.GEODA);
+        simpleItem(InicializarItems.CRISTAL_DE_CAMBIO);
+        simpleItem(InicializarItems.BANANITE);
+        simpleItem(InicializarItems.POISON_DUST);
+
+        withExistingParent(InicializarItems.FROG_MAN_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
+
     }
 
 

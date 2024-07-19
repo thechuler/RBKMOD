@@ -1,19 +1,22 @@
 package net.rbkstudios.modrbk.items;
 
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.rbkstudios.modrbk.Efectos.InicializarEfectos;
+import net.rbkstudios.modrbk.Entidades.InicializarEntidades;
 import net.rbkstudios.modrbk.Modrbk;
+import net.rbkstudios.modrbk.items.custom.CristalDeTierra;
+import net.rbkstudios.modrbk.items.custom.cristalDeCambio;
+import net.rbkstudios.modrbk.items.custom.geodaItem;
 
-import javax.swing.plaf.PanelUI;
+
+
 
 public class InicializarItems {
 
@@ -25,22 +28,33 @@ public class InicializarItems {
 
 
     //Inicializar El item en cuestion
-    public static final RegistryObject<Item> PRUEBA = ITEMS.register("prueba",()->
-            new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> FRAGMENTO_DE_ENDERIUM = ITEMS.register("fragmento_de_enderium",()->
-            new Item(new Item.Properties()));
+    public static final RegistryObject<Item> GEODA = ITEMS.register("geoda",()->
+            new geodaItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> CRISTAL_DE_CAMBIO = ITEMS.register("cristal_de_cambio",()->
+            new cristalDeCambio(new Item.Properties()));
 
 
+    public static final RegistryObject<Item> BANANITE = ITEMS.register("bananite",()->
+            new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .effect(new MobEffectInstance(InicializarEfectos.POTTASIUM_RUSH.getHolder().get(),42),100)
+                            .alwaysEdible()
+                                    .build()
 
-    public static final RegistryObject<Item> FRUTA = ITEMS.register("fruta",()->
-            new Item(new Item.Properties().food(new FoodProperties.Builder()
-                    .nutrition(5)
-                    .alwaysEdible()
-                    .saturationModifier(3)
-                    .effect(new MobEffectInstance(InicializarEfectos.HELLTOUCH.getHolder().get(),1000,1),2)
-                    .build()
             )));
+
+
+    public static final RegistryObject<Item> FROG_MAN_SPAWN_EGG = ITEMS.register("frogman_spawn_egg",
+            () -> new ForgeSpawnEggItem(InicializarEntidades.FROGMAN_ENTITY, 0x428430, 0xa8a84e, new Item.Properties()));
+
+
+
+    public static final RegistryObject<Item> POISON_DUST = ITEMS.register("poison_dust",()->
+            new Item(new Item.Properties()));
+
+
 
 
 

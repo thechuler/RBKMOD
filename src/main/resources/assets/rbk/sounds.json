@@ -1,0 +1,25 @@
+{
+  "test":{
+"subtitles": "sounds.rbk.test",
+    "sounds": [
+      "rbk:test"
+    ]
+},
+
+  "cristal_teleport":{
+    "subtitles": "sounds.rbk.cristal_teleport",
+    "sounds": [
+      "rbk:cristal_teleport"
+    ]
+  },
+
+
+  "frogmanambient1": {
+    "subtitles": "sounds.rbk.frogmanambient1",
+    "sounds":[
+      "rbk:frogmanambient1",
+      "rbk:frogmanambient2"
+    ]
+  }
+
+}

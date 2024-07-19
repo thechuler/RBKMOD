@@ -6,8 +6,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.rbkstudios.modrbk.Efectos.Custom.HellTouch;
-import net.rbkstudios.modrbk.Efectos.Custom.Retorno;
+import net.rbkstudios.modrbk.Efectos.Custom.PottasiumRush;
 import net.rbkstudios.modrbk.Modrbk;
 
 public class InicializarEfectos {
@@ -18,12 +17,9 @@ public class InicializarEfectos {
 
 
 
-    public static final RegistryObject<MobEffect> HELLTOUCH = EFECTOS.register("helltouch",
-            () -> new HellTouch(MobEffectCategory.BENEFICIAL, 0xFF0F00));
+    public static final RegistryObject<MobEffect> POTTASIUM_RUSH = EFECTOS.register("potassium_rush",
+            () -> new PottasiumRush(MobEffectCategory.BENEFICIAL, 0xFF0F00));
 
-
-    public static final RegistryObject<MobEffect> RETORNO = EFECTOS.register("retorno",
-            () -> new Retorno(MobEffectCategory.NEUTRAL, 0x1E90FF));
 
 
 

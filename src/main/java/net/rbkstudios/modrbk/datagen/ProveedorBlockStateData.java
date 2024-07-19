@@ -19,7 +19,9 @@ public class ProveedorBlockStateData extends BlockStateProvider {
     // Aca se van a registrar los modelos de los bloques.
     @Override
     protected void registerStatesAndModels() {
-        blockWithItem(InicializarBloques.ENDERIUM);
+        blockWithItem(InicializarBloques.PIEDRACARGADA);
+        blockWithItem(InicializarBloques.BANANITE_ORE);
+        blockWithItem(InicializarBloques.POISON_ORE);
 
     }
 
