@@ -1,6 +1,7 @@
 package net.rbkstudios.modrbk.items;
 
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -11,7 +12,8 @@ import net.minecraftforge.registries.RegistryObject;
 import net.rbkstudios.modrbk.Efectos.InicializarEfectos;
 import net.rbkstudios.modrbk.Entidades.InicializarEntidades;
 import net.rbkstudios.modrbk.Modrbk;
-import net.rbkstudios.modrbk.items.custom.CristalDeTierra;
+import net.rbkstudios.modrbk.items.custom.BagOfFlies;
+
 import net.rbkstudios.modrbk.items.custom.cristalDeCambio;
 import net.rbkstudios.modrbk.items.custom.geodaItem;
 
@@ -35,19 +37,39 @@ public class InicializarItems {
     public static final RegistryObject<Item> CRISTAL_DE_CAMBIO = ITEMS.register("cristal_de_cambio",()->
             new cristalDeCambio(new Item.Properties()));
 
+    public static final RegistryObject<Item> BAG_OF_FLIES = ITEMS.register("bag_of_flies",()->
+            new BagOfFlies(new Item.Properties()));
 
-    public static final RegistryObject<Item> BANANITE = ITEMS.register("bananite",()->
-            new Item(new Item.Properties()
-                    .food(new FoodProperties.Builder()
-                            .effect(new MobEffectInstance(InicializarEfectos.POTTASIUM_RUSH.getHolder().get(),42),100)
-                            .alwaysEdible()
-                                    .build()
 
-            )));
+
+
 
 
     public static final RegistryObject<Item> FROG_MAN_SPAWN_EGG = ITEMS.register("frogman_spawn_egg",
             () -> new ForgeSpawnEggItem(InicializarEntidades.FROGMAN_ENTITY, 0x428430, 0xa8a84e, new Item.Properties()));
+
+
+
+
+    public static final RegistryObject<Item> POISON_GLAND = ITEMS.register("poison_gland",()->
+            new Item(new Item.Properties()));
+
+
+    public static final RegistryObject<Item> RAW_FROG_MEAT = ITEMS.register("raw_frog_meat",()->
+            new Item(new Item.Properties().food(new FoodProperties.Builder()
+                            .nutrition(4)
+                            .saturationModifier(1.2f)
+                            .effect(new MobEffectInstance(MobEffects.POISON,100),30)
+                    .build())));
+
+
+    public static final RegistryObject<Item> COOKED_FROG_MEAT = ITEMS.register("cooked_frog_meat",()->
+            new Item(new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(7)
+                    .saturationModifier(5.2f)
+                    .build())));
+
+
 
 
 

@@ -20,7 +20,6 @@ public class ProveedorBlockStateData extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         blockWithItem(InicializarBloques.PIEDRACARGADA);
-        blockWithItem(InicializarBloques.BANANITE_ORE);
         blockWithItem(InicializarBloques.POISON_ORE);
 
     }

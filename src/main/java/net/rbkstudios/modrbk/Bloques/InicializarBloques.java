@@ -30,10 +30,6 @@ public static final RegistryObject<Block> PIEDRACARGADA = registerBlock("piedra_
 );
 
 
-public static final RegistryObject<Block> BANANITE_ORE = registerBlock("bananite_ore",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE))
-    );
-
     public static final RegistryObject<Block> POISON_ORE = registerBlock("poison_ore",
             () -> new PoisonOre(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE))
     );

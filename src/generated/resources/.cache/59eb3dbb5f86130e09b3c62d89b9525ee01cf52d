@@ -1,5 +1,4 @@
-// 1.21	2024-07-19T14:30:09.6932239	Loot Tables
-b7f5f0af17494e1072eb4a1bffb8f4c6d0144b5e data/rbk/loot_table/blocks/bananite_ore.json
+// 1.21	2024-07-22T01:00:48.7655585	Loot Tables
 1922b36438cd63079f0bb04b54b14923f9f40f9b data/rbk/loot_table/blocks/piedra_cargada.json
 ca6f190532f3ef2568b19253431ba600b5d98bc7 data/rbk/loot_table/blocks/poison_ore.json
-dd72ec2f29aac53b5115856b064056cff4cd459b data/rbk/loot_table/entities/frogman_entity.json
+cd328ef978b69877249fe5160449785200c97ba4 data/rbk/loot_table/entities/frogman_entity.json

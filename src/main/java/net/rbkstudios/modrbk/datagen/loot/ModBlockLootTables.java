@@ -23,9 +23,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                block -> createOreDrop(InicializarBloques.PIEDRACARGADA.get(),InicializarItems.GEODA.get())
                 );
 
-        this.add(InicializarBloques.BANANITE_ORE.get(),
-                block -> createOreDrop(InicializarBloques.BANANITE_ORE.get(),InicializarItems.BANANITE.get())
-        );
 
         this.add(InicializarBloques.POISON_ORE.get(),
                 block -> createOreDrop(InicializarBloques.POISON_ORE.get(),InicializarItems.POISON_DUST.get())

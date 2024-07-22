@@ -1,9 +1,9 @@
 package net.rbkstudios.modrbk.datagen;
 
-import net.minecraft.client.resources.model.ModelResourceLocation;
+
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.resources.Resource;
+
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
@@ -24,10 +24,16 @@ public class ProveedorItemModel extends ItemModelProvider {
     protected void registerModels() {
         simpleItem(InicializarItems.GEODA);
         simpleItem(InicializarItems.CRISTAL_DE_CAMBIO);
-        simpleItem(InicializarItems.BANANITE);
+
         simpleItem(InicializarItems.POISON_DUST);
+        simpleItem(InicializarItems.BAG_OF_FLIES);
+
 
         withExistingParent(InicializarItems.FROG_MAN_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
+        simpleItem(InicializarItems.COOKED_FROG_MEAT);
+        simpleItem(InicializarItems.RAW_FROG_MEAT);
+        simpleItem(InicializarItems.POISON_GLAND);
+
 
     }
 

@@ -115,6 +115,7 @@ public class Modrbk
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             EntityRenderers.register(InicializarEntidades.CRISTAL_DE_CAMBIO_PROYECTIL.get(), ThrownItemRenderer::new);
+            EntityRenderers.register(InicializarEntidades.BAG_OF_FLIES_ENTITY.get(), ThrownItemRenderer::new);
 
 
 

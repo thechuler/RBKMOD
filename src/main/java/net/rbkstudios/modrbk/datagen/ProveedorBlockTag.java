@@ -24,8 +24,6 @@ public class ProveedorBlockTag extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(InicializarBloques.PIEDRACARGADA.get());
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(InicializarBloques.PIEDRACARGADA.get());
 
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(InicializarBloques.BANANITE_ORE.get());
-        this.tag(BlockTags.NEEDS_DIAMOND_TOOL).add(InicializarBloques.BANANITE_ORE.get());
 
     }
 

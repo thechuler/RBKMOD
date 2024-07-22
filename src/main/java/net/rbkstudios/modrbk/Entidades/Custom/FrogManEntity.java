@@ -2,10 +2,17 @@ package net.rbkstudios.modrbk.Entidades.Custom;
 import net.minecraft.core.BlockPos;
 
 
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+
 import net.minecraft.server.level.ServerLevel;
+
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 
-import net.minecraft.world.InteractionHand;
+
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -13,24 +20,32 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.IronGolem;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.ZombifiedPiglin;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+
+import net.rbkstudios.modrbk.Sonidos.InicializarSonidos;
 import org.jetbrains.annotations.Nullable;
 
 
-public class FrogManEntity extends Monster {
+
+public class FrogManEntity extends Animal {
+
+   public int index = (int) (Math.random() * 3);
 
 
-    public FrogManEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+   public static EntityDataAccessor<Boolean> RUGIR = SynchedEntityData.defineId(FrogManEntity.class, EntityDataSerializers.BOOLEAN);
+    public static EntityDataAccessor<Boolean> ATACAR = SynchedEntityData.defineId(FrogManEntity.class, EntityDataSerializers.BOOLEAN);
+
+
+    public FrogManEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+
     }
 
 
@@ -39,48 +54,81 @@ public class FrogManEntity extends Monster {
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState gruñirAnimationState = new AnimationState();
     public final AnimationState atacarAnimationState = new AnimationState();
-    private boolean estaGruñendo = false;
     private int idleAnimationTimeout = 0;
-    private int gruñirAnimationTimeout = 0;
+    private int  rugidoAnimationTimeout = 0;
+    private int  atacarAnimationTimeOut = 0;
+
+
+//----------------------------------------DATA------------------------------------------//
+
+
+
+
 
 
 
     @Override
-    public boolean addEffect(MobEffectInstance pEffectInstance, @Nullable Entity pEntity) {
-        if(pEffectInstance.getEffect() == MobEffects.POISON){
-            return false;
-        }
-        return super.addEffect(pEffectInstance, pEntity);
+    protected void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(RUGIR,false);
+        pBuilder.define(ATACAR,false);
     }
 
-    @Override
-    protected void dropCustomDeathLoot(ServerLevel pLevel, DamageSource pDamageSource, boolean pRecentlyHit) {
 
-        super.dropCustomDeathLoot(pLevel, pDamageSource, pRecentlyHit);
+    public void setData(EntityDataAccessor<Boolean> DATA,boolean bool ) {
+        this.entityData.set(DATA, bool);
     }
+
+    public boolean getData(EntityDataAccessor<Boolean> DATA){
+        return this.entityData.get(DATA);
+    }
+
+
+
+
+
+
+
 
 
 //---------------------------------SONIDOS--------------------------------------------------//
 
 
-
-
+    @Nullable
     @Override
-    public void playAmbientSound() {
-        if (this.level().isClientSide() && !this.estaGruñendo) {
-            this.estaGruñendo = true;
-            gruñirAnimationState.start(this.tickCount);
-        }
+    protected SoundEvent getAmbientSound() {
+        setData(RUGIR,true);
+        return null;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return InicializarSonidos.FROGMANHURT.get();
     }
 
 
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return InicializarSonidos.FROGMANDEATH.get();
+    }
 
+    @Override
+    protected void playAttackSound() {
+        setData(ATACAR,true);
+
+    }
+
+
+    //-----------------ATAQUE----------------------------//
 
     @Override
     public boolean doHurtTarget(Entity pEntity) {
         if(!this.level().isClientSide()&& pEntity instanceof LivingEntity){
             ((LivingEntity) pEntity).addEffect(new MobEffectInstance(MobEffects.POISON,50));
         }
+
         return super.doHurtTarget(pEntity);
     }
 
@@ -98,8 +146,11 @@ public class FrogManEntity extends Monster {
   @Override
   public void tick() {
 
+
       if(this.level().isClientSide()){
           setUpAnimationStates();
+          ManageRugido();
+          ManageAtaque();
       }
       super.tick();
   }
@@ -110,8 +161,7 @@ public class FrogManEntity extends Monster {
 
 
 
-
-//-------------------------------------ATRIBUTOS----------------------------------//
+    //-------------------------------------ATRIBUTOS----------------------------------//
 public static AttributeSupplier.Builder createAttributes() {
     return Mob.createMobAttributes()
             .add(Attributes.MAX_HEALTH, 10.0)
@@ -122,10 +172,8 @@ public static AttributeSupplier.Builder createAttributes() {
 
     @Override
     protected void registerGoals() {
+        this.goalSelector.addGoal(1,new FloatGoal(this));
         this.goalSelector.addGoal(2,new MeleeAttackGoal(this,1,true));
-        // this.goalSelector.addGoal(6, new MoveThroughVillageGoal(this, 1.0, true, 4, this::canBreakDoors));
-        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 0.4));
-        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, new Class[0])).setAlertOthers(new Class[]{ZombifiedPiglin.class}));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, AbstractVillager.class, false));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, IronGolem.class, true));
@@ -165,28 +213,59 @@ public static AttributeSupplier.Builder createAttributes() {
         }
 
 
-        if(this.estaGruñendo && gruñirAnimationTimeout <= 0){
-            this.estaGruñendo = false;
-            this.gruñirAnimationTimeout = 40;
+    }
 
-            this.gruñirAnimationState.start(this.tickCount);
+
+
+
+
+
+
+
+
+    private void ManageRugido(){
+
+        if(getData(RUGIR) && this.rugidoAnimationTimeout <= 0){
+            if(this.level().isClientSide()){
+                setData(RUGIR,false);
+                this.rugidoAnimationTimeout = 60;
+                this.gruñirAnimationState.start(this.tickCount);
+                if (this.hasCustomName() && this.getCustomName() != null && this.getCustomName().getString().equals("Roman")) {
+                    this.level().playLocalSound(this,InicializarSonidos.FROGMANEASTEREGG.get(), SoundSource.NEUTRAL,this.getSoundVolume(),this.getVoicePitch());
+                }else{
+                    this.level().playLocalSound(this,InicializarSonidos.FROGMANAMBIENT.get(), SoundSource.NEUTRAL,this.getSoundVolume(),this.getVoicePitch());
+                }
+
+            }
         }else{
-            --this.gruñirAnimationTimeout;
+            this.rugidoAnimationTimeout --;
         }
 
-        if(!this.estaGruñendo && gruñirAnimationTimeout <= 0){
-            this.gruñirAnimationState.stop();
+        if(getData(RUGIR) == false && this.rugidoAnimationTimeout <= 0){
+            gruñirAnimationState.stop();
         }
 
+    }
 
 
 
 
+    private void ManageAtaque(){
 
+        if(getData(ATACAR) && this.atacarAnimationTimeOut <= 0){
+            if(this.level().isClientSide()){
+                setData(ATACAR,false);
+                this.atacarAnimationTimeOut = 40;
+                this.atacarAnimationState.start(this.tickCount);
+                this.level().playLocalSound(this,InicializarSonidos.FROGMANAMBIENT.get(), SoundSource.NEUTRAL,this.getSoundVolume(),this.getVoicePitch());
+            }
+        }else{
+            this.atacarAnimationTimeOut --;
+        }
 
-
-
-
+        if(getData(ATACAR) == false && this.atacarAnimationTimeOut <= 0){
+            atacarAnimationState.stop();
+        }
 
     }
 
@@ -201,12 +280,31 @@ public static AttributeSupplier.Builder createAttributes() {
 
 
 
+    //---------------Extras--------------------------------//
+    @Override
+    public boolean isFood(ItemStack itemStack) {
+        return false;
+    }
+
+    @Nullable
+    @Override
+    public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
+        return null;
+    }
+
+
+    @Override
+    public boolean addEffect(MobEffectInstance pEffectInstance, @Nullable Entity pEntity) {
+        if(pEffectInstance.getEffect() == MobEffects.POISON){
+            return false;
+        }
+        return super.addEffect(pEffectInstance, pEntity);
+    }
 
 
 
     public static boolean PuedeSpawnear(EntityType<FrogManEntity> entityType, LevelAccessor level, MobSpawnType spawnType, BlockPos position, RandomSource random) {
         return true ;
     }
-
 
 }

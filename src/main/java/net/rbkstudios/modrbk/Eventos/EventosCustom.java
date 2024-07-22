@@ -14,6 +14,7 @@ import net.rbkstudios.modrbk.Entidades.Custom.FrogManEntity;
 import net.rbkstudios.modrbk.Entidades.InicializarEntidades;
 import net.rbkstudios.modrbk.Modrbk;
 import net.rbkstudios.modrbk.Particulas.Custom.ParticulaDeCristal;
+import net.rbkstudios.modrbk.Particulas.Custom.ParticulaMoscas;
 import net.rbkstudios.modrbk.Particulas.InicializarParticulas;
 
 
@@ -26,7 +27,7 @@ public class EventosCustom {
         @SubscribeEvent
         public  static void  RegistrarLugardeSpawn(SpawnPlacementRegisterEvent event){
 
-            event.register(InicializarEntidades.FROGMAN_ENTITY.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.WORLD_SURFACE,FrogManEntity::PuedeSpawnear,SpawnPlacementRegisterEvent.Operation.REPLACE);
+            event.register(InicializarEntidades.FROGMAN_ENTITY.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.WORLD_SURFACE,FrogManEntity::PuedeSpawnear,SpawnPlacementRegisterEvent.Operation.OR);
 
 
         }
@@ -41,6 +42,7 @@ public class EventosCustom {
         @SubscribeEvent
         public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
             Minecraft.getInstance().particleEngine.register(InicializarParticulas.PARTICULAS_DE_CRISTAL.get(), ParticulaDeCristal.Provider::new);
+            Minecraft.getInstance().particleEngine.register(InicializarParticulas.MOSCAS.get(), ParticulaMoscas.Provider::new);
         }
 
 

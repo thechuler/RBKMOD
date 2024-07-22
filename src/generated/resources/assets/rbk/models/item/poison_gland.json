@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "rbk:item/bananite"
+    "layer0": "rbk:item/poison_gland"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "rbk:raw_frog_meat"
+  },
+  "result": {
+    "id": "rbk:cooked_frog_meat"
+  }
+}

@@ -14,12 +14,47 @@
   },
 
 
-  "frogmanambient1": {
-    "subtitles": "sounds.rbk.frogmanambient1",
+  "frogmanambient": {
+    "subtitles": "sounds.rbk.frogmanambient",
     "sounds":[
       "rbk:frogmanambient1",
-      "rbk:frogmanambient2"
+      "rbk:frogmanambient2",
+      "rbk:frogmanambient3"
+    ]
+  },
+
+
+  "frogmanhurt": {
+    "subtitles": "sounds.rbk.frogmanhurt",
+    "sounds":[
+      "rbk:frogmanhurt1",
+      "rbk:frogmanhurt2"
+    ]
+  },
+
+
+  "frogmandeath": {
+    "subtitles": "sounds.rbk.frogmandeath",
+    "sounds":[
+      "rbk:frogmandeath1",
+      "rbk:frogmandeath2"
+    ]
+  },
+
+
+  "frogmaneasteregg": {
+    "subtitles": "sounds.rbk.frogmaneasteregg",
+    "sounds":[
+      "rbk:frogmaneasteregg"
+    ]
+  },
+
+  "moscas": {
+    "subtitles": "sounds.rbk.moscas",
+    "sounds":[
+      "rbk:moscas"
     ]
   }
+
 
 }
