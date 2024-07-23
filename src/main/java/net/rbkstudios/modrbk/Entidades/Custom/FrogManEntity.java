@@ -1,4 +1,5 @@
 package net.rbkstudios.modrbk.Entidades.Custom;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 
 
@@ -30,8 +31,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 
 import net.rbkstudios.modrbk.Sonidos.InicializarSonidos;
+import net.rbkstudios.modrbk.Utilidades;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 
 
 public class FrogManEntity extends Animal {
@@ -133,16 +136,39 @@ public class FrogManEntity extends Animal {
     }
 
 
+    private void MontarseParaAlcanzarObjetivo() {
+        if (this.getTarget() != null) {
+            if(this.getTarget().getBlockY()  > this.getBlockY() + 2 ){
+                List<LivingEntity> frogmanCercanos = Utilidades.ObtenerEntidadesEnArea(this.level(), this.blockPosition(), 3);
+                for (LivingEntity frogman : frogmanCercanos) {
+                    if (frogman instanceof FrogManEntity && !frogman.isPassenger() && !frogman.isVehicle() && frogman != this) {
+                        frogman.startRiding(this);
+                    }
+                }
+            }else{
+                if(this.isPassenger() && !this.isVehicle() && this.getTarget().getBlockY() - 1  <= this.getBlockY()){
+                    this.stopRiding();
+
+                    double dx = this.getTarget().getX() - this.getX();
+                    double dz = this.getTarget().getZ() - this.getZ();
+                    double distancia = Math.sqrt(dx * dx + dz * dz);
+                    dx = dx / distancia;
+                    dz = dz / distancia;
+                    this.setDeltaMovement(this.getDeltaMovement().add(dx * 0.5, 0.5, dz * 0.5)); // Ajusta los valores según sea necesario
+                    this.hasImpulse = true;
+                }
+            }
+
+        } else if (this.isVehicle()) {
+            this.stopRiding();
+        }
+
+
+    }
 
 
 
-
-
-
-
-
-
-  //-------------------------------TICK-------------------------------------//
+    //-------------------------------TICK-------------------------------------//
   @Override
   public void tick() {
 
@@ -152,6 +178,11 @@ public class FrogManEntity extends Animal {
           ManageRugido();
           ManageAtaque();
       }
+
+      if(!this.level().isClientSide()){
+       MontarseParaAlcanzarObjetivo();
+      }
+
       super.tick();
   }
 
@@ -166,7 +197,8 @@ public static AttributeSupplier.Builder createAttributes() {
     return Mob.createMobAttributes()
             .add(Attributes.MAX_HEALTH, 10.0)
             .add(Attributes.MOVEMENT_SPEED, 0.4)
-            .add(Attributes.ATTACK_DAMAGE, 8.5);
+            .add(Attributes.ATTACK_DAMAGE, 8.5)
+            .add(Attributes.FALL_DAMAGE_MULTIPLIER,0);
 }
 
 

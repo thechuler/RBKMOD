@@ -38,12 +38,12 @@ public class ModBiomeModifiers {
         HolderSet<Biome> BIOMA = HolderSet.direct(biomes.getOrThrow(Biomes.SWAMP));
         context.register(SPAWNEAR_FROGMAN, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
                 BIOMA,
-                // biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+
                 Collections.singletonList(new MobSpawnSettings.SpawnerData(
                         InicializarEntidades.FROGMAN_ENTITY.get(),
-                        100,  // Peso de generación
-                        4,
-                        10
+                        80,  // Peso de generación
+                        3,
+                        5
                 ))
         ));
 

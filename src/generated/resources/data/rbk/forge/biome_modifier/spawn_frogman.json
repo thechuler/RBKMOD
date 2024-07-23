@@ -3,8 +3,8 @@
   "biomes": "minecraft:swamp",
   "spawners": {
     "type": "rbk:frogman_entity",
-    "maxCount": 10,
-    "minCount": 4,
-    "weight": 100
+    "maxCount": 5,
+    "minCount": 3,
+    "weight": 80
   }
 }
