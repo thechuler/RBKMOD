@@ -22,11 +22,16 @@ public class InicializarCreativeTab {
                         pOutput.accept(InicializarBloques.PIEDRACARGADA.get().asItem());
                         pOutput.accept(InicializarItems.BAG_OF_FLIES.get());
                         pOutput.accept(InicializarItems.CRISTAL_DE_CAMBIO.get());
+
+
+
                         pOutput.accept(InicializarBloques.POISON_ORE.get().asItem());
                         pOutput.accept(InicializarItems.POISON_DUST.get());
                         pOutput.accept(InicializarItems.FROG_MAN_SPAWN_EGG.get());
                         pOutput.accept(InicializarItems.RAW_FROG_MEAT.get());
                         pOutput.accept(InicializarItems.COOKED_FROG_MEAT.get());
+                        pOutput.accept(InicializarItems.ARMA.get());
+                        pOutput.accept(InicializarItems.MOSKABUM_SPAWN_EGG.get());
 
 
                     })

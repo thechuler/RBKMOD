@@ -35,6 +35,8 @@ public class ProveedorItemModel extends ItemModelProvider {
         simpleItem(InicializarItems.POISON_GLAND);
 
 
+        withExistingParent(InicializarItems.MOSKABUM_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
+
     }
 
 

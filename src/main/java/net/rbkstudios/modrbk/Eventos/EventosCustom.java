@@ -11,6 +11,7 @@ import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.rbkstudios.modrbk.Entidades.Custom.FrogManEntity;
+import net.rbkstudios.modrbk.Entidades.Custom.MoskabumEntity;
 import net.rbkstudios.modrbk.Entidades.InicializarEntidades;
 import net.rbkstudios.modrbk.Modrbk;
 import net.rbkstudios.modrbk.Particulas.Custom.ParticulaDeCristal;
@@ -28,6 +29,7 @@ public class EventosCustom {
         public  static void  RegistrarLugardeSpawn(SpawnPlacementRegisterEvent event){
 
             event.register(InicializarEntidades.FROGMAN_ENTITY.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.WORLD_SURFACE,FrogManEntity::PuedeSpawnear,SpawnPlacementRegisterEvent.Operation.OR);
+            event.register(InicializarEntidades.MOSKABUM_ENTITY.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,MoskabumEntity::PuedeSpawnear,SpawnPlacementRegisterEvent.Operation.REPLACE);
 
 
         }
@@ -36,8 +38,9 @@ public class EventosCustom {
         @SubscribeEvent
         public static void RegistrarAtributos(EntityAttributeCreationEvent event){
             event.put(InicializarEntidades.FROGMAN_ENTITY.get(), FrogManEntity.createAttributes().build());
-
+            event.put(InicializarEntidades.MOSKABUM_ENTITY.get(), MoskabumEntity.createAttributes().build());
         }
+
 
         @SubscribeEvent
         public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {

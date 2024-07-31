@@ -9,11 +9,15 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraftforge.registries.RegistryObject;
-import net.rbkstudios.modrbk.Entidades.Custom.BagOfFliesEntity;
-import net.rbkstudios.modrbk.Entidades.Custom.CristalDeCambioEntidad;
+import net.rbkstudios.modrbk.Entidades.Custom.MoskabumEntity;
+import net.rbkstudios.modrbk.Entidades.Custom.Proyectiles.BagOfFliesEntity;
+import net.rbkstudios.modrbk.Entidades.Custom.Proyectiles.CristalDeCambioEntidad;
 
 import net.rbkstudios.modrbk.Entidades.Custom.FrogManEntity;
+import net.rbkstudios.modrbk.Entidades.Custom.Proyectiles.explosivoEntity;
 import net.rbkstudios.modrbk.Modrbk;
+
+import java.security.PublicKey;
 
 public class InicializarEntidades {
 
@@ -27,10 +31,16 @@ public class InicializarEntidades {
                     .sized(0.5f, 0.5f).build("cristal_de_cambio_proyectil"));
 
 
+
+    public static final RegistryObject<EntityType<explosivoEntity>> EXPLOSIVO =
+            ENTIDADES.register("explosivo_entity", () -> EntityType.Builder.<explosivoEntity>of(explosivoEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("explosivo_entity"));
+
+
+
     public static final RegistryObject<EntityType<BagOfFliesEntity>> BAG_OF_FLIES_ENTITY =
             ENTIDADES.register("bag_of_flies_entity", () -> EntityType.Builder.<BagOfFliesEntity>of(BagOfFliesEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("bag_of_flies_entity"));
-
 
 
 
@@ -42,6 +52,9 @@ public class InicializarEntidades {
 
 
 
+    public  static  final RegistryObject<EntityType<MoskabumEntity>> MOSKABUM_ENTITY =ENTIDADES.register("moskabum_entity",
+            ()->EntityType.Builder.of(MoskabumEntity::new,MobCategory.MONSTER).sized(1.2f,1f)
+                    .build(ResourceLocation.fromNamespaceAndPath(Modrbk.MODID,"moskabum_entity").toString()));
 
 
 

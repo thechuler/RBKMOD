@@ -16,9 +16,6 @@ public class InicializarSonidos {
 
 
 
-    public static final RegistryObject<SoundEvent> TEST = registerSoundEvents("test");
-    public static final RegistryObject<SoundEvent> CRISTAL_TELEPORT = registerSoundEvents("cristal_teleport");
-
 
 
     public static final RegistryObject<SoundEvent> FROGMANAMBIENT = registerSoundEvents("frogmanambient");
@@ -26,6 +23,10 @@ public class InicializarSonidos {
     public static final RegistryObject<SoundEvent> FROGMANDEATH= registerSoundEvents("frogmandeath");
     public static final RegistryObject<SoundEvent> FROGMANEASTEREGG= registerSoundEvents("frogmaneasteregg");
 
+
+    public static final RegistryObject<SoundEvent> DISPARO_DE_CANNON= registerSoundEvents("disparo_de_cannon");
+    public static final RegistryObject<SoundEvent> CANNON_RELOAD = registerSoundEvents("cannon_reload");
+    public static final RegistryObject<SoundEvent> EMPTY_CANNON = registerSoundEvents("empty_cannon");
 
     public static final RegistryObject<SoundEvent> MOSCAS = registerSoundEvents("moscas");
 

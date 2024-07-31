@@ -7,7 +7,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.rbkstudios.modrbk.Entidades.Custom.CristalDeCambioEntidad;
+import net.rbkstudios.modrbk.Entidades.Custom.Proyectiles.CristalDeCambioEntidad;
 
 public class cristalDeCambio extends Item {
     public cristalDeCambio(Properties pProperties) {

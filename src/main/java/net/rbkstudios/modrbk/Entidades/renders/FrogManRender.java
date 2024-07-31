@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import net.rbkstudios.modrbk.Entidades.Custom.FrogManEntity;
 import net.rbkstudios.modrbk.Entidades.modelos.FrogManModel;
+import net.rbkstudios.modrbk.Entidades.renders.customlayers.FrogmanEyesLayer;
 import net.rbkstudios.modrbk.Modrbk;
 
 
@@ -28,6 +29,7 @@ public class FrogManRender <type extends FrogManEntity> extends MobRenderer<type
 
     public FrogManRender(EntityRendererProvider.Context pContext) {
         super(pContext, new FrogManModel<>(pContext.bakeLayer(FrogManModel.LAYER_LOCATION)), 0.5f);
+        this.addLayer(new FrogmanEyesLayer(this));
     }
 
 
@@ -36,9 +38,9 @@ public class FrogManRender <type extends FrogManEntity> extends MobRenderer<type
 
     @Override
     public void render(FrogManEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
-
         entity = pEntity;
         super.render((type) pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
+
     }
 
 

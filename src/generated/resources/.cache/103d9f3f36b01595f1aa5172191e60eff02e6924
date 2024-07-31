@@ -1,5 +1,6 @@
-// 1.21	2024-07-22T17:34:26.8263176	Registries
+// 1.21	2024-07-29T16:27:15.2467365	Registries
 eca7201203bbb7932f369cbff8ab644e37351e8a data/rbk/forge/biome_modifier/agregar_piedra_cargada.json
-5d4ec372d024a9c29af497e728c01491c3d8ebf7 data/rbk/forge/biome_modifier/spawn_frogman.json
+6aa5afff301e777aa9293d1067e0363f405bd703 data/rbk/forge/biome_modifier/spawn_frogman.json
+c484ffb66e9de40415b94e454e9eca43baf88ba7 data/rbk/forge/biome_modifier/spawn_nitromosca.json
 ebc8482e13b12841d458b0d3ec452cb0e48acac5 data/rbk/worldgen/configured_feature/piedra_cargada.json
 1cae8c7e947e3dcf1666a05218408b5bf0791f02 data/rbk/worldgen/placed_feature/piedra_cargada_placed.json

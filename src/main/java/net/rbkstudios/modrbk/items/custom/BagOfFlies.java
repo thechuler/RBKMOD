@@ -7,8 +7,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.rbkstudios.modrbk.Entidades.Custom.BagOfFliesEntity;
-import net.rbkstudios.modrbk.Entidades.Custom.CristalDeCambioEntidad;
+import net.rbkstudios.modrbk.Entidades.Custom.Proyectiles.BagOfFliesEntity;
 
 public class BagOfFlies extends Item {
     public BagOfFlies(Properties pProperties) {

@@ -1,7 +1,5 @@
-package net.rbkstudios.modrbk.Entidades.Custom;
+package net.rbkstudios.modrbk.Entidades.Custom.Proyectiles;
 
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -9,14 +7,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.rbkstudios.modrbk.Efectos.InicializarEfectos;
 import net.rbkstudios.modrbk.Entidades.InicializarEntidades;
 import net.rbkstudios.modrbk.items.InicializarItems;
-
-import java.awt.*;
 
 public class BagOfFliesEntity extends ThrowableItemProjectile {
 

@@ -3,6 +3,7 @@ package net.rbkstudios.modrbk.Bloques.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -12,6 +13,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.BlockHitResult;
 import net.rbkstudios.modrbk.Particulas.InicializarParticulas;
 
 import java.util.List;
@@ -23,7 +25,13 @@ public class PoisonOre extends Block {
 
 
     @Override
+    protected InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
+        return super.useWithoutItem(pState, pLevel, pPos, pPlayer, pHitResult);
+    }
+
+    @Override
     public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
+
 
         List<LivingEntity> entidades = DetectarEntidadesEnArea(pos,5,level);
         for (int i = 0; i < 3; i++) {

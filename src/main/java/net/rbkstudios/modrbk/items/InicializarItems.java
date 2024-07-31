@@ -1,5 +1,6 @@
 package net.rbkstudios.modrbk.items;
 
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -12,12 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.rbkstudios.modrbk.Efectos.InicializarEfectos;
 import net.rbkstudios.modrbk.Entidades.InicializarEntidades;
 import net.rbkstudios.modrbk.Modrbk;
-import net.rbkstudios.modrbk.items.custom.BagOfFlies;
-
-import net.rbkstudios.modrbk.items.custom.cristalDeCambio;
-import net.rbkstudios.modrbk.items.custom.geodaItem;
-
-
+import net.rbkstudios.modrbk.items.custom.*;
 
 
 public class InicializarItems {
@@ -45,10 +41,10 @@ public class InicializarItems {
 
 
 
+
+
     public static final RegistryObject<Item> FROG_MAN_SPAWN_EGG = ITEMS.register("frogman_spawn_egg",
             () -> new ForgeSpawnEggItem(InicializarEntidades.FROGMAN_ENTITY, 0x428430, 0xa8a84e, new Item.Properties()));
-
-
 
 
     public static final RegistryObject<Item> POISON_GLAND = ITEMS.register("poison_gland",()->
@@ -71,12 +67,24 @@ public class InicializarItems {
 
 
 
-
-
     public static final RegistryObject<Item> POISON_DUST = ITEMS.register("poison_dust",()->
             new Item(new Item.Properties()));
 
 
+
+
+
+
+
+
+
+    public static final RegistryObject<Item> MOSKABUM_SPAWN_EGG = ITEMS.register("moskabum_spawn_egg",
+            () -> new ForgeSpawnEggItem(InicializarEntidades.MOSKABUM_ENTITY, 0x701717, 0x2ca3a3, new Item.Properties()));
+
+
+
+    public static final RegistryObject<Item> ARMA = ITEMS.register("arma",()->
+            new armaitem(new Item.Properties().stacksTo(1)));
 
 
 

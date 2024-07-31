@@ -2,6 +2,10 @@ package net.rbkstudios.modrbk;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.EmptyMapItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
@@ -26,5 +30,17 @@ public class Utilidades {
         return level.getEntitiesOfClass(LivingEntity.class, area);
     }
 
+
+
+
+
+    public static ItemStack EncontrarItemEnJugador(Player player, Item item){
+        for(ItemStack itemStack : player.getInventory().items){
+            if(!itemStack.isEmpty() && itemStack.getItem() == item){
+                return itemStack;
+            }
+        }
+        return  ItemStack.EMPTY;
+    }
 
 }

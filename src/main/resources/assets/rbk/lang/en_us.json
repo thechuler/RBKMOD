@@ -1,13 +1,23 @@
 {
   "item.rbk.geoda":"Geode",
   "item.rbk.cristal_de_cambio":"Change Crystal",
-  "item.rbk.bananite":"Bananite",
 
 
 
 
-  "block.rbk.piedra_cargada": "Heavy Stone",
-  "block.rbk.bananite_ore": "Bananite Ore"
+  "item.rbk.frogman_spawn_egg": "Frogman spawn egg",
+  "item.rbk.poison_gland": "Poison sac",
+  "item.rbk.raw_frog_meat": "Raw frog meat",
+  "item.rbk.cooked_frog_meat": "Cooked frog meat",
+  "sounds.rbk.frogmanambient": "Frog croak",
+  "sounds.rbk.frogmaneasteregg": "Drums sound",
+
+
+
+
+
+  "tooltip.rbk.arma.tooltip": "Ammo: ",
+  "block.rbk.piedra_cargada": "Heavy Stone"
 
 
 

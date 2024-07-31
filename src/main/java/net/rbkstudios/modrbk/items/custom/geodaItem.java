@@ -43,6 +43,7 @@ public class geodaItem extends Item {
 
     private ItemStack generarLoot(){
         List<Item> DropsTierBajo = Arrays.asList(Items.RAW_COPPER,Items.COAL,Items.STONE);
+
         List<Item> DropsTiermedio = Arrays.asList(Items.RAW_IRON,Items.RAW_GOLD,Items.AMETHYST_SHARD);
         List<Item> DropsTierAlto = Arrays.asList(Items.EMERALD,Items.DIAMOND);
         List<Item> DropsTierMaximo = Arrays.asList(Items.NETHERITE_SCRAP,Items.TOTEM_OF_UNDYING);
@@ -50,6 +51,7 @@ public class geodaItem extends Item {
 
 
         int probabilidad = new Random().nextInt(100);
+
         ItemStack Drop = null;
 
         if(probabilidad >=0  && probabilidad <= 50){

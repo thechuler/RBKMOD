@@ -1,17 +1,4 @@
 {
-  "test":{
-"subtitles": "sounds.rbk.test",
-    "sounds": [
-      "rbk:test"
-    ]
-},
-
-  "cristal_teleport":{
-    "subtitles": "sounds.rbk.cristal_teleport",
-    "sounds": [
-      "rbk:cristal_teleport"
-    ]
-  },
 
 
   "frogmanambient": {
@@ -54,7 +41,26 @@
     "sounds":[
       "rbk:moscas"
     ]
-  }
+  },
 
+  "disparo_de_cannon": {
+    "subtitles": "sounds.rbk.disparo_de_cannon",
+    "sounds":[
+      "rbk:disparo_de_cannon"
+    ]
+  },
+
+  "cannon_reload": {
+    "subtitles": "sounds.rbk.cannon_reload",
+    "sounds":[
+      "rbk:cannon_reload"
+    ]
+  },
+  "empty_cannon": {
+    "subtitles": "sounds.rbk.empty_cannon",
+    "sounds":[
+      "rbk:empty_cannon"
+    ]
+  }
 
 }

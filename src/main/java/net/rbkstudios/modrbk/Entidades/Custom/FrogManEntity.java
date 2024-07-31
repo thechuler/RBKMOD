@@ -14,6 +14,8 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 
 
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -30,6 +32,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 
+import net.minecraft.world.phys.Vec3;
+import net.rbkstudios.modrbk.Entidades.InicializarEntidades;
 import net.rbkstudios.modrbk.Sonidos.InicializarSonidos;
 import net.rbkstudios.modrbk.Utilidades;
 import org.jetbrains.annotations.Nullable;
@@ -50,7 +54,6 @@ public class FrogManEntity extends Animal {
         super(pEntityType, pLevel);
 
     }
-
 
 
 
@@ -138,15 +141,15 @@ public class FrogManEntity extends Animal {
 
     private void MontarseParaAlcanzarObjetivo() {
         if (this.getTarget() != null) {
-            if(this.getTarget().getBlockY()  > this.getBlockY() + 2 ){
-                List<LivingEntity> frogmanCercanos = Utilidades.ObtenerEntidadesEnArea(this.level(), this.blockPosition(), 3);
+            List<LivingEntity> frogmanCercanos = Utilidades.ObtenerEntidadesEnArea(this.level(), this.blockPosition(), 3);
+            if(this.getTarget().getBlockY()   > this.getBlockY() + 1){
                 for (LivingEntity frogman : frogmanCercanos) {
                     if (frogman instanceof FrogManEntity && !frogman.isPassenger() && !frogman.isVehicle() && frogman != this) {
                         frogman.startRiding(this);
                     }
                 }
             }else{
-                if(this.isPassenger() && !this.isVehicle() && this.getTarget().getBlockY() - 1  <= this.getBlockY()){
+                if(this.isPassenger() && !this.isVehicle()){
                     this.stopRiding();
 
                     double dx = this.getTarget().getX() - this.getX();
@@ -154,12 +157,13 @@ public class FrogManEntity extends Animal {
                     double distancia = Math.sqrt(dx * dx + dz * dz);
                     dx = dx / distancia;
                     dz = dz / distancia;
-                    this.setDeltaMovement(this.getDeltaMovement().add(dx * 0.5, 0.5, dz * 0.5)); // Ajusta los valores según sea necesario
+                    this.setDeltaMovement(this.getDeltaMovement().add(dx * 1, 1, dz * 1));
                     this.hasImpulse = true;
+                }else{
                 }
             }
 
-        } else if (this.isVehicle()) {
+        } else if (this.isPassenger()) {
             this.stopRiding();
         }
 
@@ -206,9 +210,11 @@ public static AttributeSupplier.Builder createAttributes() {
     protected void registerGoals() {
         this.goalSelector.addGoal(1,new FloatGoal(this));
         this.goalSelector.addGoal(2,new MeleeAttackGoal(this,1,true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Player.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, AbstractVillager.class, false));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, IronGolem.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, Player.class, true));
+        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal(this, AbstractVillager.class, false));
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, MoskabumEntity.class, true));
+
+
 
     }
 

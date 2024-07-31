@@ -5,6 +5,7 @@ import com.mojang.logging.LogUtils;
 
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -20,7 +21,9 @@ import net.rbkstudios.modrbk.Bloques.InicializarBloques;
 import net.rbkstudios.modrbk.Efectos.InicializarEfectos;
 import net.rbkstudios.modrbk.Entidades.InicializarEntidades;
 import net.rbkstudios.modrbk.Entidades.modelos.FrogManModel;
+import net.rbkstudios.modrbk.Entidades.modelos.MosKabumModel;
 import net.rbkstudios.modrbk.Entidades.renders.FrogManRender;
+import net.rbkstudios.modrbk.Entidades.renders.MosKabumRender;
 import net.rbkstudios.modrbk.Particulas.InicializarParticulas;
 import net.rbkstudios.modrbk.Sonidos.InicializarSonidos;
 import net.rbkstudios.modrbk.items.InicializarCreativeTab;
@@ -66,7 +69,6 @@ public class Modrbk
 
     private void commonSetup(final FMLCommonSetupEvent event) {
 
-
     }
 
 
@@ -101,11 +103,13 @@ public class Modrbk
         @SubscribeEvent
         public  static  void  registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event){
             event.registerLayerDefinition(FrogManModel.LAYER_LOCATION,FrogManModel::createBodyLayer);
+            event.registerLayerDefinition(MosKabumModel.LAYER_LOCATION,MosKabumModel::createBodyLayer);
         }
 
         @SubscribeEvent
         public static void registerRender(EntityRenderersEvent.RegisterRenderers event){
             event.registerEntityRenderer(InicializarEntidades.FROGMAN_ENTITY.get(), FrogManRender::new);
+            event.registerEntityRenderer(InicializarEntidades.MOSKABUM_ENTITY.get(), MosKabumRender::new);
         }
 
 
@@ -116,7 +120,7 @@ public class Modrbk
         {
             EntityRenderers.register(InicializarEntidades.CRISTAL_DE_CAMBIO_PROYECTIL.get(), ThrownItemRenderer::new);
             EntityRenderers.register(InicializarEntidades.BAG_OF_FLIES_ENTITY.get(), ThrownItemRenderer::new);
-
+            EntityRenderers.register(InicializarEntidades.EXPLOSIVO.get(), ThrownItemRenderer::new);
 
 
 

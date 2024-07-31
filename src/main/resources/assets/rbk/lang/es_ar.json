@@ -1,12 +1,23 @@
 {
   "item.rbk.geoda":"Geoda",
   "item.rbk.cristal_de_cambio":"Cristal de Cambio",
-  "item.rbk.bananite":"Bananita",
 
 
 
-  "block.rbk.piedra_cargada": "Piedra Cargada",
-  "block.rbk.bananite_ore": "Mineral de Bananita"
+  "item.rbk.frogman_spawn_egg": "Generador de Hombre-Rana",
+  "item.rbk.poison_gland": "Glándula de veneno",
+  "item.rbk.raw_frog_meat": "Carne de rana cruda",
+  "item.rbk.cooked_frog_meat": "Carne de rana cocinada",
+  "sounds.rbk.frogmanambient": "Croar de rana",
+  "sounds.rbk.frogmaneasteregg": "Boquita intensify",
+
+
+
+
+
+  "tooltip.rbk.arma.tooltip": "Municion: ",
+  "block.rbk.piedra_cargada": "Piedra Cargada"
+
 
 
 

@@ -1,4 +1,4 @@
-package net.rbkstudios.modrbk.Entidades.Custom;
+package net.rbkstudios.modrbk.Entidades.Custom.Proyectiles;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -7,18 +7,13 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.PlayerRideable;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.rbkstudios.modrbk.Entidades.InicializarEntidades;
 import net.rbkstudios.modrbk.Particulas.InicializarParticulas;
-import net.rbkstudios.modrbk.Sonidos.InicializarSonidos;
 import net.rbkstudios.modrbk.items.InicializarItems;
 
 public class CristalDeCambioEntidad extends ThrowableItemProjectile {

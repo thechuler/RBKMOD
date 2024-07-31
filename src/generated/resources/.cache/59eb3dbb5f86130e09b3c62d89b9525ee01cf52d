@@ -1,4 +1,5 @@
-// 1.21	2024-07-22T01:00:48.7655585	Loot Tables
+// 1.21	2024-07-24T19:50:30.8802057	Loot Tables
 1922b36438cd63079f0bb04b54b14923f9f40f9b data/rbk/loot_table/blocks/piedra_cargada.json
 ca6f190532f3ef2568b19253431ba600b5d98bc7 data/rbk/loot_table/blocks/poison_ore.json
 cd328ef978b69877249fe5160449785200c97ba4 data/rbk/loot_table/entities/frogman_entity.json
+a4243f89ace7ddc910e2e453c1e3484bb7e4c3e8 data/rbk/loot_table/entities/moskabum_entity.json
