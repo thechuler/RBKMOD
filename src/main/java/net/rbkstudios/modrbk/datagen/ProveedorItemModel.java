@@ -23,7 +23,6 @@ public class ProveedorItemModel extends ItemModelProvider {
     @Override
     protected void registerModels() {
         simpleItem(InicializarItems.GEODA);
-        simpleItem(InicializarItems.CRISTAL_DE_CAMBIO);
 
         simpleItem(InicializarItems.POISON_DUST);
         simpleItem(InicializarItems.BAG_OF_FLIES);
@@ -35,6 +34,10 @@ public class ProveedorItemModel extends ItemModelProvider {
         simpleItem(InicializarItems.POISON_GLAND);
 
 
+        simpleItem(InicializarItems.BALA);
+        simpleItem(InicializarItems.BALA_INESTABLE);
+        simpleItem(InicializarItems.BALA_VENENOSA);
+        simpleItem(InicializarItems.NITRO_FLUIDO);
         withExistingParent(InicializarItems.MOSKABUM_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
 
     }

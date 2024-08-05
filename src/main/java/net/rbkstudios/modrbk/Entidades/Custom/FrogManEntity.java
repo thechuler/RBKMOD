@@ -1,5 +1,4 @@
 package net.rbkstudios.modrbk.Entidades.Custom;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 
 
@@ -14,8 +13,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 
 
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -25,15 +22,12 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 
-import net.minecraft.world.phys.Vec3;
-import net.rbkstudios.modrbk.Entidades.InicializarEntidades;
 import net.rbkstudios.modrbk.Sonidos.InicializarSonidos;
 import net.rbkstudios.modrbk.Utilidades;
 import org.jetbrains.annotations.Nullable;
@@ -212,7 +206,7 @@ public static AttributeSupplier.Builder createAttributes() {
         this.goalSelector.addGoal(2,new MeleeAttackGoal(this,1,true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, Player.class, true));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal(this, AbstractVillager.class, false));
-        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, MoskabumEntity.class, true));
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, NitroMoscaEntity.class, true));
 
 
 

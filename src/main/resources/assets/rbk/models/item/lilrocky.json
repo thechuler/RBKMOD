@@ -2,17 +2,17 @@
   "parent": "minecraft:item/handheld",
   "loader": "forge:separate_transforms",
   "base": {
-    "parent": "rbk:item/arma_3d"
+    "parent": "rbk:item/lilrocky_3d"
   },
   "perspectives": {
     "gui": {
-      "parent": "rbk:item/arma_2d"
+      "parent": "rbk:item/lilrocky_3d"
     },
     "ground": {
-      "parent": "rbk:item/arma_2d"
+      "parent": "rbk:item/lilrocky_3d"
     },
     "fixed": {
-      "parent": "rbk:item/arma_3d"
+      "parent": "rbk:item/lilrocky_3d"
     }
   }
 }

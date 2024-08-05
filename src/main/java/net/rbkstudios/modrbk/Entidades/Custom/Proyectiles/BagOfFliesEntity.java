@@ -19,11 +19,11 @@ public class BagOfFliesEntity extends ThrowableItemProjectile {
         super(pEntityType, pLevel);
     }
     public BagOfFliesEntity(Level pLevel) {
-        super(InicializarEntidades.CRISTAL_DE_CAMBIO_PROYECTIL.get(),pLevel);
+        super(InicializarEntidades.BAG_OF_FLIES_ENTITY.get(),pLevel);
     }
 
     public BagOfFliesEntity(Level pLevel, LivingEntity livingEntity) {
-        super(InicializarEntidades.CRISTAL_DE_CAMBIO_PROYECTIL.get(),livingEntity,pLevel);
+        super(InicializarEntidades.BAG_OF_FLIES_ENTITY.get(),livingEntity,pLevel);
     }
 
 

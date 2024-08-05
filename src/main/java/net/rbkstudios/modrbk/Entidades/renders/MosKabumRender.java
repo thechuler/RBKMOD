@@ -5,12 +5,11 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.rbkstudios.modrbk.Entidades.Custom.MoskabumEntity;
+import net.rbkstudios.modrbk.Entidades.Custom.NitroMoscaEntity;
 import net.rbkstudios.modrbk.Entidades.modelos.MosKabumModel;
-import net.rbkstudios.modrbk.Entidades.renders.customlayers.FrogmanEyesLayer;
 import net.rbkstudios.modrbk.Modrbk;
 
-public class MosKabumRender<T extends MoskabumEntity> extends MobRenderer<T, MosKabumModel<T>> {
+public class MosKabumRender<T extends NitroMoscaEntity> extends MobRenderer<T, MosKabumModel<T>> {
 
     private static final ResourceLocation TEXTURAS = ResourceLocation.fromNamespaceAndPath(Modrbk.MODID,"textures/entity/moskabumtexture.png");
 

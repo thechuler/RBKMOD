@@ -21,6 +21,8 @@ public class ProveedorBlockStateData extends BlockStateProvider {
     protected void registerStatesAndModels() {
         blockWithItem(InicializarBloques.PIEDRACARGADA);
         blockWithItem(InicializarBloques.POISON_ORE);
+        blockWithItem(InicializarBloques.BLOQUE_NITRO_FLUIDO);
+        blockWithItem(InicializarBloques.BLOQUE_NITRO_CONCENTRADO);
 
     }
 

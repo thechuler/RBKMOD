@@ -15,8 +15,14 @@ public class InicializarParticulas {
 
 
 
-    public static final RegistryObject<SimpleParticleType> PARTICULAS_DE_CRISTAL =
-            PARTICULAS.register("particulas_de_cristal", () -> new SimpleParticleType(true));
+    public static final RegistryObject<SimpleParticleType> PARTICULA_DE_VENENO =
+            PARTICULAS.register("particula_veneno", () -> new SimpleParticleType(true));
+
+
+
+    public static final RegistryObject<SimpleParticleType> PARTICULAS_DE_NITRO_FLUIDO =
+            PARTICULAS.register("particulas_de_nitro_fluido", () -> new SimpleParticleType(true));
+
 
     public static final RegistryObject<SimpleParticleType> MOSCAS =
             PARTICULAS.register("moscas", () -> new SimpleParticleType(true));

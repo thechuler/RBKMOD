@@ -1,6 +1,5 @@
 package net.rbkstudios.modrbk.items;
 
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -10,7 +9,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.rbkstudios.modrbk.Efectos.InicializarEfectos;
 import net.rbkstudios.modrbk.Entidades.InicializarEntidades;
 import net.rbkstudios.modrbk.Modrbk;
 import net.rbkstudios.modrbk.items.custom.*;
@@ -30,8 +28,6 @@ public class InicializarItems {
     public static final RegistryObject<Item> GEODA = ITEMS.register("geoda",()->
             new geodaItem(new Item.Properties()));
 
-    public static final RegistryObject<Item> CRISTAL_DE_CAMBIO = ITEMS.register("cristal_de_cambio",()->
-            new cristalDeCambio(new Item.Properties()));
 
     public static final RegistryObject<Item> BAG_OF_FLIES = ITEMS.register("bag_of_flies",()->
             new BagOfFlies(new Item.Properties()));
@@ -83,8 +79,26 @@ public class InicializarItems {
 
 
 
-    public static final RegistryObject<Item> ARMA = ITEMS.register("arma",()->
-            new armaitem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> BALA = ITEMS.register("bala",()->
+            new Item(new Item.Properties()));
+
+
+    public static final RegistryObject<Item> BALA_VENENOSA = ITEMS.register("bala_venenosa",()->
+            new Item(new Item.Properties()));
+
+
+    public static final RegistryObject<Item> BALA_INESTABLE = ITEMS.register("bala_inestable",()->
+            new Item(new Item.Properties()));
+
+
+
+    public static final RegistryObject<Item> NITRO_FLUIDO = ITEMS.register("nitro_fluido",()->
+            new Item(new Item.Properties()));
+
+
+    public static final RegistryObject<Item> LILROCKY = ITEMS.register("lilrocky",()->
+            new LilRocky(new Item.Properties().stacksTo(1)));
 
 
 

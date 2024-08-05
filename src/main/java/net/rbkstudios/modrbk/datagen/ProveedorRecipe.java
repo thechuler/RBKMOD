@@ -2,10 +2,8 @@ package net.rbkstudios.modrbk.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
@@ -27,6 +25,9 @@ public class ProveedorRecipe extends RecipeProvider implements IConditionBuilder
      simpleCookingRecipe(recipeOutput,"smelting",RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new,200, InicializarItems.RAW_FROG_MEAT.get(),InicializarItems.COOKED_FROG_MEAT.get(),0.35f);
      simpleCookingRecipe(recipeOutput,"smoking",RecipeSerializer.SMOKING_RECIPE, SmokingRecipe::new,100, InicializarItems.RAW_FROG_MEAT.get(),InicializarItems.COOKED_FROG_MEAT.get(),0.35f);
      simpleCookingRecipe(recipeOutput,"campfire_cooking",RecipeSerializer.CAMPFIRE_COOKING_RECIPE, CampfireCookingRecipe::new,200, InicializarItems.RAW_FROG_MEAT.get(),InicializarItems.COOKED_FROG_MEAT.get(),0.35f);
+
+
+
 
 
     }

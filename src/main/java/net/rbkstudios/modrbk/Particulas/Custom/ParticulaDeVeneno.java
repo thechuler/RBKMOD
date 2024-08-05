@@ -6,10 +6,10 @@ import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class ParticulaDeCristal extends TextureSheetParticle {
+public class ParticulaDeVeneno extends TextureSheetParticle {
 
 
-    public ParticulaDeCristal(ClientLevel pLevel, double pX, double pY, double pZ, double pXSpeed, double pYSpeed, double pZSpeed) {
+    public ParticulaDeVeneno(ClientLevel pLevel, double pX, double pY, double pZ, double pXSpeed, double pYSpeed, double pZSpeed) {
         super(pLevel, pX, pY, pZ, pXSpeed, pYSpeed, pZSpeed);
 
         this.friction = 0.8F;
@@ -17,7 +17,7 @@ public class ParticulaDeCristal extends TextureSheetParticle {
         this.yd = pYSpeed;
         this.zd = pZSpeed;
         this.quadSize *= 3F;
-        this.lifetime = 20;
+        this.lifetime = 200;
 
         this.rCol = 1f;
         this.gCol = 1f;
@@ -67,7 +67,7 @@ public class ParticulaDeCristal extends TextureSheetParticle {
 
 
         public Particle createParticle(SimpleParticleType particleType, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) {
-            ParticulaDeCristal $$8 = new ParticulaDeCristal(level, x, y, z, dx, dy, dz);
+            ParticulaDeVeneno $$8 = new ParticulaDeVeneno(level, x, y, z, dx, dy, dz);
             $$8.pickSprite(this.sprites);
             return $$8;
         }

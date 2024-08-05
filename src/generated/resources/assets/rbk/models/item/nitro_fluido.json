@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "rbk:item/cristal_de_cambio"
+    "layer0": "rbk:item/nitro_fluido"
   }
 }

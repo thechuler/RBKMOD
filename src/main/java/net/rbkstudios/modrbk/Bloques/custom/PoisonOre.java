@@ -35,7 +35,7 @@ public class PoisonOre extends Block {
 
         List<LivingEntity> entidades = DetectarEntidadesEnArea(pos,5,level);
         for (int i = 0; i < 3; i++) {
-            level.addParticle(InicializarParticulas.PARTICULAS_DE_CRISTAL.get(),pos.getX(),pos.getY()+1,pos.getZ(),0,0,0);
+            level.addParticle(InicializarParticulas.PARTICULA_DE_VENENO.get(),pos.getX(),pos.getY()+1,pos.getZ(),0,0,0);
         }
 
         for (LivingEntity entidad : entidades){

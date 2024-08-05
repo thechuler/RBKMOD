@@ -10,7 +10,9 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.rbkstudios.modrbk.Bloques.custom.BloqueNitroConcentrado;
 import net.rbkstudios.modrbk.Bloques.custom.PoisonOre;
+import net.rbkstudios.modrbk.Bloques.custom.BloqueNitroFluido;
 import net.rbkstudios.modrbk.Modrbk;
 import net.rbkstudios.modrbk.items.InicializarItems;
 
@@ -28,6 +30,15 @@ public class InicializarBloques {
 public static final RegistryObject<Block> PIEDRACARGADA = registerBlock("piedra_cargada",
         () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE))
 );
+
+
+    public static final RegistryObject<Block> BLOQUE_NITRO_FLUIDO = registerBlock("bloque_nitro_fluido",
+            () -> new BloqueNitroFluido(BlockBehaviour.Properties.ofFullCopy(Blocks.SLIME_BLOCK))
+    );
+
+    public static final RegistryObject<Block> BLOQUE_NITRO_CONCENTRADO = registerBlock("bloque_nitro_concentrado",
+            () -> new BloqueNitroConcentrado(BlockBehaviour.Properties.ofFullCopy(Blocks.SLIME_BLOCK))
+    );
 
 
     public static final RegistryObject<Block> POISON_ORE = registerBlock("poison_ore",

@@ -27,6 +27,7 @@ public class InicializarSonidos {
     public static final RegistryObject<SoundEvent> DISPARO_DE_CANNON= registerSoundEvents("disparo_de_cannon");
     public static final RegistryObject<SoundEvent> CANNON_RELOAD = registerSoundEvents("cannon_reload");
     public static final RegistryObject<SoundEvent> EMPTY_CANNON = registerSoundEvents("empty_cannon");
+    public static final RegistryObject<SoundEvent> CANNON_CLICK = registerSoundEvents("cannon_click");
 
     public static final RegistryObject<SoundEvent> MOSCAS = registerSoundEvents("moscas");
 

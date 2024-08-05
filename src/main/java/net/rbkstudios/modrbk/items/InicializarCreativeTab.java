@@ -15,13 +15,12 @@ public class InicializarCreativeTab {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Modrbk.MODID);
 
     public static final RegistryObject<CreativeModeTab> MAIN_TAB = CREATIVE_TABS.register("main_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(InicializarItems.CRISTAL_DE_CAMBIO.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(InicializarItems.NITRO_FLUIDO.get()))
                     .title(Component.translatable("creativetab.main_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(InicializarItems.GEODA.get());
                         pOutput.accept(InicializarBloques.PIEDRACARGADA.get().asItem());
                         pOutput.accept(InicializarItems.BAG_OF_FLIES.get());
-                        pOutput.accept(InicializarItems.CRISTAL_DE_CAMBIO.get());
 
 
 
@@ -30,8 +29,18 @@ public class InicializarCreativeTab {
                         pOutput.accept(InicializarItems.FROG_MAN_SPAWN_EGG.get());
                         pOutput.accept(InicializarItems.RAW_FROG_MEAT.get());
                         pOutput.accept(InicializarItems.COOKED_FROG_MEAT.get());
-                        pOutput.accept(InicializarItems.ARMA.get());
+
+
+
+                        pOutput.accept(InicializarItems.LILROCKY.get());
+                        pOutput.accept(InicializarItems.BALA.get());
+                        pOutput.accept(InicializarItems.BALA_INESTABLE.get());
+                        pOutput.accept(InicializarItems.BALA_VENENOSA.get());
                         pOutput.accept(InicializarItems.MOSKABUM_SPAWN_EGG.get());
+                        pOutput.accept(InicializarItems.NITRO_FLUIDO.get());
+                        pOutput.accept(InicializarBloques.BLOQUE_NITRO_FLUIDO.get());
+                        pOutput.accept(InicializarBloques.BLOQUE_NITRO_CONCENTRADO.get());
+
 
 
                     })

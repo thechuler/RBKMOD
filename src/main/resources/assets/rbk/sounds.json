@@ -56,10 +56,19 @@
       "rbk:cannon_reload"
     ]
   },
+
   "empty_cannon": {
     "subtitles": "sounds.rbk.empty_cannon",
     "sounds":[
       "rbk:empty_cannon"
+    ]
+  },
+
+
+  "cannon_click": {
+    "subtitles": "sounds.rbk.cannon_click",
+    "sounds":[
+      "rbk:cannon_click"
     ]
   }
 

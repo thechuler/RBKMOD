@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "rbk:bloque_nitro_concentrado"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "rbk:blocks/bloque_nitro_concentrado"
+}

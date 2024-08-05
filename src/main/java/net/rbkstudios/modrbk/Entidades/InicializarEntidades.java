@@ -9,15 +9,15 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraftforge.registries.RegistryObject;
-import net.rbkstudios.modrbk.Entidades.Custom.MoskabumEntity;
+import net.rbkstudios.modrbk.Entidades.Custom.NitroMoscaEntity;
 import net.rbkstudios.modrbk.Entidades.Custom.Proyectiles.BagOfFliesEntity;
-import net.rbkstudios.modrbk.Entidades.Custom.Proyectiles.CristalDeCambioEntidad;
+
 
 import net.rbkstudios.modrbk.Entidades.Custom.FrogManEntity;
-import net.rbkstudios.modrbk.Entidades.Custom.Proyectiles.explosivoEntity;
+import net.rbkstudios.modrbk.Entidades.Custom.Proyectiles.BalaDeCannonEntity;
+import net.rbkstudios.modrbk.Entidades.Custom.Proyectiles.BalaDeCannonInestableEntity;
+import net.rbkstudios.modrbk.Entidades.Custom.Proyectiles.BalaDeCannonPutrefactaEntity;
 import net.rbkstudios.modrbk.Modrbk;
-
-import java.security.PublicKey;
 
 public class InicializarEntidades {
 
@@ -26,15 +26,15 @@ public class InicializarEntidades {
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Modrbk.MODID);
 
 
-    public static final RegistryObject<EntityType<CristalDeCambioEntidad>> CRISTAL_DE_CAMBIO_PROYECTIL =
-            ENTIDADES.register("cristal_de_cambio_proyectil", () -> EntityType.Builder.<CristalDeCambioEntidad>of(CristalDeCambioEntidad::new, MobCategory.MISC)
-                    .sized(0.5f, 0.5f).build("cristal_de_cambio_proyectil"));
+
+    public static final RegistryObject<EntityType<BalaDeCannonEntity>> BALA_DE_CANNON_ENTITY =
+            ENTIDADES.register("bala_de_cannon_entity", () -> EntityType.Builder.<BalaDeCannonEntity>of(BalaDeCannonEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("bala_de_cannon_entity"));
 
 
-
-    public static final RegistryObject<EntityType<explosivoEntity>> EXPLOSIVO =
-            ENTIDADES.register("explosivo_entity", () -> EntityType.Builder.<explosivoEntity>of(explosivoEntity::new, MobCategory.MISC)
-                    .sized(0.5f, 0.5f).build("explosivo_entity"));
+    public static final RegistryObject<EntityType<BalaDeCannonEntity>> BALA_DE_CANNON_PUTREFACTA_ENTITY =
+            ENTIDADES.register("bala_de_cannon_putrefacta_entity", () -> EntityType.Builder.<BalaDeCannonEntity>of(BalaDeCannonPutrefactaEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("bala_de_cannon_putrefacta_entity"));
 
 
 
@@ -52,8 +52,8 @@ public class InicializarEntidades {
 
 
 
-    public  static  final RegistryObject<EntityType<MoskabumEntity>> MOSKABUM_ENTITY =ENTIDADES.register("moskabum_entity",
-            ()->EntityType.Builder.of(MoskabumEntity::new,MobCategory.MONSTER).sized(1.2f,1f)
+    public  static  final RegistryObject<EntityType<NitroMoscaEntity>> MOSKABUM_ENTITY =ENTIDADES.register("moskabum_entity",
+            ()->EntityType.Builder.of(NitroMoscaEntity::new,MobCategory.MONSTER).sized(1.2f,1f)
                     .build(ResourceLocation.fromNamespaceAndPath(Modrbk.MODID,"moskabum_entity").toString()));
 
 

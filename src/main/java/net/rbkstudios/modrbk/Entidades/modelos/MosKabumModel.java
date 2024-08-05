@@ -11,13 +11,11 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
-import net.rbkstudios.modrbk.Entidades.Animaciones.FrogManAnimaciones;
 import net.rbkstudios.modrbk.Entidades.Animaciones.MosKabumAnimaciones;
-import net.rbkstudios.modrbk.Entidades.Custom.FrogManEntity;
-import net.rbkstudios.modrbk.Entidades.Custom.MoskabumEntity;
+import net.rbkstudios.modrbk.Entidades.Custom.NitroMoscaEntity;
 import net.rbkstudios.modrbk.Modrbk;
 
-public class MosKabumModel<T extends MoskabumEntity> extends HierarchicalModel<T> {
+public class MosKabumModel<T extends NitroMoscaEntity> extends HierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(Modrbk.MODID, "moskabummodel"), "main");
 	private final ModelPart Root;
@@ -83,6 +81,6 @@ public class MosKabumModel<T extends MoskabumEntity> extends HierarchicalModel<T
 	@Override
 	public void setupAnim(T t, float v, float v1, float v2, float v3, float v4) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.animate(((MoskabumEntity) t).idleAnimationState, MosKabumAnimaciones.idle, v2, 1f);
+		this.animate(((NitroMoscaEntity) t).idleAnimationState, MosKabumAnimaciones.idle, v2, 1f);
 	}
 }
